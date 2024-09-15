@@ -10,5 +10,5 @@ class Inferencer:
     def get_response(self, image_link, entity_name):
         result = self.reader.readtext(image_link)
         result = " ".join([detection[1] for detection in result])
-        res = ollama.generate(model='llama3.1', prompt=self.prompt.prompt.format(result, entity_name))['response']
+        res = ollama.generate(model='llama3.1', prompt=self.prompt.format(result, entity_name))['response']
         return result, res
